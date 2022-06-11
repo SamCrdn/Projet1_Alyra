@@ -125,4 +125,14 @@ contract Voting is Ownable {
             }
         }
     }
+    function resetVoting() external onlyOwner {
+        state = WorkflowStatus.RegisteringVoters;
+        delete voters;
+        delete proposals;
+        voteName = "";
+        totalVote = 0;
+        totalVoter = 0;
+        // J'ai essayé de retirer les mapping avec des boucles For mais comme vu avec l'exercice du dessiner c'est gagné mais sans succès.. 
+
+    }
 }  
